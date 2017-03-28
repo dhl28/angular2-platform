@@ -1,0 +1,204 @@
+<div class="tool-bar">
+  <div class="pull-right">
+    <button class="btn btn-refresh" (click)="refresh()">刷新</button>
+  </div>
+  <div class="pull-right">
+    <div class="search">
+      <input type="text" [(ngModel)]="keyWord" (keydown)="keyDown($event)" class="form-control search"
+             placeholder="请输入名称">
+      <i class="fa fa-search pointer" (click)="search()"></i>
+    </div>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th width="25%" (click)="sort('name')">名称
+      <div [ngClass]="{'order-down': sortFieldName=='name'&& isDesc,'order-up': sortFieldName=='name'&& !isDesc,'order-no': sortFieldName!='name'}"></div>
+    </th>
+    <th width="18%" (click)="sort('startTime')">开始时间
+      <div [ngClass]="{'order-down': sortFieldName=='startTime'&& isDesc,'order-up': sortFieldName=='startTime'&& !isDesc,'order-no': sortFieldName!='startTime'}"></div>
+    </th>
+    <th width="18%" (click)="sort('endTime')">结束时间
+      <div [ngClass]="{'order-down': sortFieldName=='endTime'&& isDesc,'order-up': sortFieldName=='endTime'&& !isDesc,'order-no': sortFieldName!='endTime'}"></div>
+    </th>
+    <th width="20%" (click)="sort('status')">状态
+      <div [ngClass]="{'order-down': sortFieldName=='status'&& isDesc,'order-up': sortFieldName=='status'&& !isDesc,'order-no': sortFieldName!='status'}"></div>
+    </th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of showRecords">
+    <td><a (click)="viewApp(item)">{{item.name}}</a></td>
+    <td>{{item.startTime}}</td>
+    <td>{{item.endTime}}</td>
+    <td [ngSwitch]="item.status">
+      <span *ngSwitchCase="1">
+        <span class="pull-left">正在运行</span>
+        <a class="cell-icon icon-running"></a>
+      </span>
+      <span *ngSwitchCase="2">
+        <span class="pull-left">运行成功</span>
+        <a class="cell-icon icon-success" (click)="viewRecord(item)" tooltip="查看日志"></a>
+        <a class="btn-view-result" (click)="viewReport(item)">查看结果</a>
+      </span>
+      <span *ngSwitchCase="3">
+        <span class="pull-left">运行失败</span>
+        <a class="cell-icon icon-failure" (click)="viewRecord(item)" tooltip="查看日志"></a>
+      </span>
+      <span *ngSwitchDefault>未知</span>
+    </td>
+    <td>
+      <a class="cell-operation" tooltip="查看工作流参数" (click)="viewWfVars(item)">
+        <li class="icon-font icon-view"></li>
+      </a>
+      <a class="cell-operation" tooltip="删除" (click)="removeRecord(item)">
+        <li class="icon-font icon-remove"></li>
+      </a>
+    </td>
+  </tr>
+  <tr *ngIf="isLoading">
+    <td colspan="5" class="text-center">
+      <loading-effect [isLoading]="isLoading"></loading-effect>
+    </td>
+  </tr>
+  <tr *ngIf="!isLoading && showRecords.length ==0">
+    <td colspan="5" class="text-center">
+      没有符合结果的记录
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="text-center">
+  <pagination *ngIf="showPagination" [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage"
+              (pageChanged)="pageChanged($event)" class="pagination-sm"
+              [itemsPerPage]="itemsPerPage" [maxSize]="maxSize" [boundaryLinks]="true" [rotate]="false"
+              previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+</div>
+<!-- 查看日志modal start-->
+<div class="modal fade" bsModal #staticModal="bs-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="staticModal.hide()"><span
+          aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">查看日志</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-md-4 control-label">APP名称</label>
+                <div class="col-md-8">
+                  <p class="form-control-static">{{seletedItem.name}}</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">开始时间</label>
+                <div class="col-md-8">
+                  <p class="form-control-static">{{log.startTime}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-md-4 control-label">执行状态</label>
+                <div class="col-md-8">
+                  <p class="form-control-static">{{getStatusChs(seletedItem)}}</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">结束时间</label>
+                <div class="col-md-8">
+                  <p class="form-control-static">{{log.endTime}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre class="log-content">{{log.exeLog}}</pre>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="staticModal.hide()">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 查看日志 modal end-->
+
+<!-- 查看工作流参数modal start-->
+<div class="modal fade" bsModal #wfVarModal="bs-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="wfVarModal.hide()"><span
+          aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">工作流参数</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-md-4 control-label">APP名称</label>
+                <div class="col-md-8">
+                  <p class="form-control-static">{{seletedItem.name}}</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">开始时间</label>
+                <div class="col-md-8">
+                  <p class="form-control-static">{{seletedItem.startTime}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-md-4 control-label">执行状态</label>
+                <div class="col-md-8">
+                  <p class="form-control-static">{{getStatusChs(seletedItem)}}</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">结束时间</label>
+                <div class="col-md-8">
+                  <p class="form-control-static">{{seletedItem.endTime}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>变量名</th>
+              <th>类型</th>
+              <th>变量值</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of wfVars; let i=index">
+              <td>{{item.varName}}</td>
+              <td>{{getVarTpeChs(item)}}</td>
+              <td>{{item.varValue}}</td>
+            </tr>
+            <tr *ngIf="wfVars && wfVars.length==0">
+              <td colspan="3" class="text-center">
+                没有符合结果的记录
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="wfVarModal.hide()">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 查看工作流 modal end-->
+<msg-modal #msgModal (msgModalBtnEvent)="msgModalBtnEvent($event)"></msg-modal>

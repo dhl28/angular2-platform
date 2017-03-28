@@ -1,0 +1,76 @@
+<div class="content-container">
+  <div class="tabbable-line">
+    <ul class="nav nav-tabs ">
+      <li class="active">
+        <a href="#{{TABS[0]}}" id="a_{{TABS[0]}}" (click)="selectTab(0)" data-toggle="tab">
+          全部应用
+        </a>
+      </li>
+      <li>
+        <a href="#{{TABS[1]}}" id="a_{{TABS[1]}}"(click)="selectTab(1)" data-toggle="tab">
+          数据服务
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+
+      <div class="tab-pane active" id="{{TABS[0]}}">
+        <div class="appMarketOrderDiv">
+          <table>
+            <tr>
+              <th class="orderByTime" [ngClass]="{'active': appPageOpts.sortFieldName=='time'}" (click)="order('time')">按时间
+                <div class="ordericon" [ngClass]="{'order-down': appPageOpts.sortFieldName=='time'&& appPageOpts.isDesc,'order-up': appPageOpts.sortFieldName=='time'&& !appPageOpts.isDesc,'order-no': appPageOpts.sortFieldName!='time'}"></div>
+              </th>
+              <th class="orderByHeat" [ngClass]="{'active': appPageOpts.sortFieldName=='hot'}" (click)="order('hot')">按热度
+                <div class="ordericon" [ngClass]="{'order-down': appPageOpts.sortFieldName=='hot'&& appPageOpts.isDesc,'order-up': appPageOpts.sortFieldName=='hot'&& !appPageOpts.isDesc,'order-no': appPageOpts.sortFieldName!='hot'}"></div>
+              </th>
+              <th class="totalApps">共{{appSearchResult.total}}条结果</th>
+            </tr>
+          </table>
+        </div>
+        <loading-effect [isLoading]="isLoading"></loading-effect>
+        <div class="app-detail" *ngFor="let item of appSearchResult.list">
+          <div class="icon pointer" (click)="viewApp(item)"></div>
+          <div class="dic">
+            <span class="app-name pointer"  (click)="viewApp(item)">{{item.appName}}</span>
+            <span class="description">简介：{{item.description}}</span>
+            <span>更新时间：{{item.modifyTime}}</span>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <pagination  [boundaryLinks]="true" [totalItems]="appPageOpts.totalItems" [(ngModel)]="appPageOpts.currentPage"
+                       (pageChanged)="pageChanged0($event)" class="pagination-sm"
+                       [itemsPerPage]="appPageOpts.itemsPerPage" [maxSize]="appPageOpts.maxSize" [boundaryLinks]="true" [rotate]="false"
+                       previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+        </div>
+      </div>
+      <div class="tab-pane" id="{{TABS[1]}}">
+        <div class="appMarketOrderDiv">
+          <table>
+            <tr>
+              <th class="orderByTime" [ngClass]="{'active': apiPageOpts.sortFieldName=='time'}" (click)="order('time')">按时间
+                <div class="ordericon" [ngClass]="{'order-down': apiPageOpts.sortFieldName=='time'&& apiPageOpts.isDesc,'order-up': apiPageOpts.sortFieldName=='time'&& !apiPageOpts.isDesc,'order-no': apiPageOpts.sortFieldName!='time'}"></div>
+              </th>
+              <th class="orderByHeat" [ngClass]="{'active': apiPageOpts.sortFieldName=='hot'}" (click)="order('hot')">按热度
+                <div class="ordericon" [ngClass]="{'order-down': apiPageOpts.sortFieldName=='hot'&& apiPageOpts.isDesc,'order-up': apiPageOpts.sortFieldName=='hot'&& !apiPageOpts.isDesc,'order-no': apiPageOpts.sortFieldName!='hot'}"></div>
+              </th>
+              <th class="totalApps">共{{apiSearchResult.total}}条结果</th>
+            </tr>
+          </table>
+        </div>
+        <loading-effect [isLoading]="isLoading1"></loading-effect>
+        <service-unit  *ngFor="let service of apiSearchResult.list" [service]="service"></service-unit>
+
+        <div class="text-center">
+          <pagination  [boundaryLinks]="true" [totalItems]="apiPageOpts.totalItems" [(ngModel)]="apiPageOpts.currentPage"
+                       (pageChanged)="pageChanged1($event)" class="pagination-sm"
+                       [itemsPerPage]="apiPageOpts.itemsPerPage" [maxSize]="apiPageOpts.maxSize" [boundaryLinks]="true" [rotate]="false"
+                       previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+

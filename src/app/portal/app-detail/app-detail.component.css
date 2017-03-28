@@ -1,0 +1,76 @@
+.container{
+}
+.appMarket{
+  margin:0 15%;
+}
+.app-detail{
+  /*border-bottom: solid 1px #E4E4E4;*/
+  width: 100%;
+  color: #999999;
+  display: inline-block;
+  padding: 10px 0;
+  /*margin: 10px 15px 10px 0;*/
+}
+.app-detail .icon{
+  width: 90px;
+  position: relative;
+  left: -5px;
+}
+.app-detail > div {
+  float: left;
+  height: 90px;
+}
+
+.dic {
+  padding: 0 0 0 10px;
+}
+.dic >span{
+  display: block;
+  margin-bottom:11px;
+}
+.dic .app-name{
+  color: #666666;
+}
+.app-detail .app-name{
+  font-size: 14px;
+  font-weight: bold;
+}
+.description , .report-overview,.app-detail{
+  /*border: solid 1px #E4E4E4;*/
+  padding: 0 15px;
+  margin-bottom: 0px;
+}
+.description{
+  min-height: 100px;
+}
+.report-overview {
+  height: 500px;
+  overflow: auto;
+}
+:host-context(.platform-content) .content-container {
+  margin: 0px;
+  padding: 0px;
+}
+.btn.btn-sm{
+  padding: 3px 12px;
+}
+.btn-success{
+  background-color: #FE7827;
+}
+.btn-default{
+  background-color: #ffffff;
+}
+.title{
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.dic >span:first-child >span{
+  margin-right: 20px;
+}
+.fa-heart{
+  color: #FE7827;
+}
+.disabled{
+  background-color: #CCC !important;
+  cursor: default;
+}

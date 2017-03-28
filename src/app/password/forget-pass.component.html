@@ -1,0 +1,31 @@
+<div class="pass">
+  <div class="content">
+    <div class="passDiv">
+      <form class="pass-form">
+        <h3 class="form-title">忘记密码</h3>
+        <hr class="registLine"/>
+        <div class="remindTips">我们将通过邮件向您发送重新设置密码的链接，<br/>请确认您的邮件地址：</div>
+        <div class="form-group formInput">
+          <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off"
+                 [(ngModel)]="email" name="email" (focus)="mailFocus()" (blur)="mailChanged()" id="mailInput"/>
+        </div>
+        <div class="pass-msg" [ngClass]="{'hides': mailInfo !== 3}">请输入您的邮件地址</div>
+        <div class="pass-msg" [ngClass]="{'hides': mailInfo !== 2}">邮件格式错误</div>
+        <div class="pass-msg" [ngClass]="{'hides': mailInfo !== 4}">该邮箱未注册</div>
+        <div class="pass-msg" [ngClass]="{'hides': mailInfo !== 5}">邮件发送成功！</div>
+        <div class="pass-msg" [ngClass]="{'hides': mailInfo !== 6}">邮件发送失败</div>
+        <div class="form-group">
+          <button type="button" (click)="sendEmail()" class="btn btn-pass uppercase" id="btn-pass">确 认</button>
+        </div>
+      </form>
+    </div>
+    <hr class="registLine">
+    <div class="links">
+      <a [routerLink]="['/register']" class="link">快速注册</a>
+      <a [routerLink]="['/login']" class="link">快速登录</a>
+    </div>
+    <div class="login-copyright">
+      版权所有：用友网络科技股份有限公司&copy;2016
+    </div>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+<div class="regist">
+  <div class="content">
+    <div class="registDiv">
+    <form class="regist-form">
+      <h3 class="form-title">注册</h3>
+      <hr class="registLine"/>
+      <div class="form-group">
+        <label class="control-label">用户名<span class="mustInput">*</span></label>
+
+        <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off"
+               [ngClass]="{'errorInput': userNameLenthInfo !== 0 && (userNameLenthInfo !== 1 || userNameCodeInfo !== 1)}"
+               [(ngModel)]="user.username" placeholder="用户名" name="username" (focus)="userNameFocus()" (blur)="userNameChanged()" id="userNameInput"/>
+        <div class="clearInput nameClear" [ngClass]="{'hides': userNameLenthInfo === 0 || (userNameLenthInfo === 1 && userNameCodeInfo === 1)}"></div>
+        <div class="float-box name-float-box hides">
+          <div class="float-box_body">
+            <div class="infoMsg">2-20个字符;</div>
+            <div class="infoMsg">数字、下划线、英文大小写(区分大小写);</div>
+          </div>
+        </div>
+        <div class="float-box-sm name-float-box2 hides">
+          <div class="float-box_body-sm">
+            <div class="infoMsg" [ngClass]="{'hides': userNameLenthInfo !== 2}">2-20位长度</div>
+            <div class="infoMsg" [ngClass]="{'hides': (userNameLenthInfo !== 1 && userNameLenthInfo !== 3)
+             || userNameCodeInfo !== 2 }">数字、下划线、英文大小写(区分大小写)</div>
+            <div class="infoMsg"  [ngClass]="{'hides': userNameLenthInfo !== 3}">用户名以被占用</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">邮箱<span class="mustInput">*</span></label>
+        <input type="hidden"/>
+        <input style="display: none"/>
+        <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off"
+               [ngClass]="{'errorInput': mailInfo !== 0 && mailInfo !== 1}"
+               [(ngModel)]="user.email" placeholder="邮箱" name="email" (focus)="mailFocus()" (blur)="mailChanged()" id="mailInput"/>
+        <div class="clearInput mailClear" [ngClass]="{'hides': mailInfo == 0 || mailInfo == 1}"></div>
+        <div class="float-box-sm mail-float-box2 hides">
+          <div class="float-box_body-sm">
+            <div class="infoMsg" [ngClass]="{'hides': mailInfo !== 2}">邮箱格式不正确</div>
+            <div class="infoMsg" [ngClass]="{'hides': mailInfo !== 3}">邮箱已被占用</div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden"/>
+      <input style="display: none"/>
+      <div class="form-group">
+        <label class="control-label">密码<span class="mustInput">*</span></label>
+        <input type="hidden"/>
+        <input style="display: none"/>
+        <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off"
+               [ngClass]="{'errorInput': passwordLenthInfo !== 0 && (passwordLenthInfo !== 1 || passwordCodeInfo !== 1)}"
+                [(ngModel)]="user.password" placeholder="密码" name="password" (focus)="passwordFocus()" (blur)="passwordChanged()" id="passwordInput"/>
+        <div class="clearInput passwordClear"  [ngClass]="{'hides': passwordLenthInfo === 0 || (passwordLenthInfo === 1 && passwordCodeInfo === 1)}"></div>
+        <div class="float-box pass-float-box hides">
+          <div class="float-box_body">
+            <div class="infoMsg">6-18个字符</div>
+            <div class="infoMsg">数字、英文大小写(区分大小写)、-_!@#$%^&*</div>
+          </div>
+        </div>
+        <div class="float-box-sm pass-float-box2 hides">
+          <div class="float-box_body-sm">
+            <div class="infoMsg" [ngClass]="{'hides': passwordLenthInfo !== 2}">6-18个字符</div>
+            <div class="infoMsg" [ngClass]="{'hides': (passwordLenthInfo !== 1 && passwordLenthInfo !== 3)
+             || passwordCodeInfo !== 2 }">数字、英文大小写(区分大小写)、-_!@#$%^&*</div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden"/>
+      <input style="display: none"/>
+      <div class="form-group">
+        <label class="control-label">确认密码<span class="mustInput">*</span></label>
+        <input type="hidden"/>
+        <input style="display: none"/>
+        <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off"
+               [ngClass]="{'errorInput': repasswordInfo == 2}"
+                 [(ngModel)]="repassword" placeholder="确认密码" name="repassword" (focus)="repasswordFocus()" (input)="repasswordChange()" (blur)="repasswordChanged()" id="repasswordInput"/>
+        <div class="clearInput repasswordClear" [ngClass]="{'hides': repasswordInfo !== 2}"></div>
+        <div class="float-box-sm repass-float-box hides">
+          <div class="float-box_body-sm">
+            <div class="infoMsg"  [ngClass]="{'hides': repasswordInfo !== 2}">密码不一致</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">手机</label>
+        <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off"
+               [(ngModel)]="user.mobile" placeholder="手机" name="mobile"id="mobileInput"/>
+      </div>
+      <div class="form-group">
+        <label class="control-label">公司</label>
+        <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off"
+               [(ngModel)]="user.company" placeholder="公司" name="company" id="companyInput"/></div>
+      <div class="form-group">
+        <label class="control-label">行业</label>
+        <select class="form-control form-control-solid placeholder-no-fix" type="" autocomplete="off"
+               [(ngModel)]="user.industry" placeholder="行业" name="industry">
+          <option value="">选择行业</option>
+          <option  *ngFor="let industry of industryList" value="{{industry}}">{{industry}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="control-label">部门</label>
+        <select class="form-control form-control-solid placeholder-no-fix" type="" autocomplete="off"
+                [(ngModel)]="user.department" placeholder="部门" name="department">
+          <option value="">选择部门</option>
+          <option  *ngFor="let department of departmentList" value="{{department}}">{{department}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input class="form-control form-control-solid placeholder-no-fix captchaInput" type="text" autocomplete="off"
+               [ngClass]="{'errorInput': captchaInfo == 3 }"
+               [(ngModel)]="user.captcha" placeholder="验证码" name="captcha" id="captchaInput" (blur)="captchaChanged()"/>
+        <div class="clearInput captchaClear" [ngClass]="{'hides': captchaInfo !== 3}"></div>
+        <div class="codeAreaDiv">
+          <div id="codeArea">
+          </div>
+          <div class="refreshNew"  (click)="getCaptchaCode()"></div>
+        </div>
+        <div class="float-box-sm captcha-float-box" [ngClass]="{'hides': captchaInfo !== 3 }">
+          <div class="float-box_body-sm">
+            <div class="infoMsg">验证码错误</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group checkLine"  style="clear:both;">
+        <label class="" for="checkMes">已经阅读并同意<a [routerLink]="['/agreement']" target="_blank">《用友数据云服务协议》</a></label>
+        <input class="checkbox" type="checkbox" (click)="agreeMess()" id="checkMes"/>
+      </div>
+      <div class="form-group">
+        <button type="button" (click)="regist()" class="btn btn-regist uppercase" id="btn-regist">注 册</button>
+      </div>
+    </form>
+</div>
+    <div class="registSuccessDiv hides">
+    <form class="regist-form">
+      <h3 class="form-title">注册</h3>
+      <hr class="registLine"/>
+      <div class="successInfoDiv"><span class="registSuccess"></span>注册成功</div>
+      <div class="mailInfo">请登录您的邮箱{{user.email}}点击链接激活账户</div>
+      <div class="form-group">
+        <div class="mailInfo"><a (click)="sendEmailAgain(user.username)">重新发送激活邮件<span id="undoTime"></span></a></div>
+        <div class="mailInfo login-msg">{{msg}}</div>
+      </div>
+    </form>
+    </div>
+    <hr class="registLine">
+    <div class="links">
+      <a  [routerLink]="['/forgetPass']" class="link">忘记密码</a>
+      <a  [routerLink]="['/login']" class="link">快速登录</a>
+    </div>
+    <div class="login-copyright">
+      版权所有：用友网络科技股份有限公司&copy;2016
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+/**
+ * @author: @AngularClass
+ */
+var path = require('path');
+
+// Helper functions
+var ROOT = path.resolve(__dirname, '..');
+
+//production context
+var PROD_CTX = '/cloud';
+var PROD_STATIC_RESOURCE_PATH = PROD_CTX + '/dist';
+
+function hasProcessFlag(flag) {
+  return process.argv.join('').indexOf(flag) > -1;
+}
+
+function isWebpackDevServer() {
+  return process.argv[1] && !! (/webpack-dev-server/.exec(process.argv[1]));
+}
+
+function root(args) {
+  args = Array.prototype.slice.call(arguments, 0);
+  return path.join.apply(path, [ROOT].concat(args));
+}
+
+exports.hasProcessFlag = hasProcessFlag;
+exports.isWebpackDevServer = isWebpackDevServer;
+exports.root = root;
+exports.PROD_CTX = PROD_CTX;
+exports.PROD_STATIC_RESOURCE_PATH = PROD_STATIC_RESOURCE_PATH;
+

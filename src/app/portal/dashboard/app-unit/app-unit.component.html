@@ -1,0 +1,8 @@
+<div class="app">
+  <div class="app-icon pointer" (click)="viewDetail()"></div>
+  <div class="app-dic">
+    <span class="app-name description" (click)="viewDetail()">{{app.appName}}</span>
+    <span class="run-times">更新日期：{{app.modifyTime.substring(0,10)}}</span>
+    <span class="app-intro description">简介：{{app.description}}</span>
+  </div>
+</div>

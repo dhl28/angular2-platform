@@ -1,0 +1,132 @@
+<!-- BEGIN HEADER INNER -->
+<div class="page-header-inner clearfix">
+  <!-- BEGIN LOGO -->
+  <div class="page-logo">
+    <div class="logo-img pointer" [routerLink]="['/portal']"></div>
+    <!--<a [routerLink]="['/portal']">-->
+      <!---->
+      <!--<img src="../../../assets/css/themes/img/logo.png" alt="logo" class="logo-default"/>-->
+    <!--</a>-->
+    <div class="menu-toggler sidebar-toggler">
+      <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+    </div>
+  </div>
+  <div class="main-menu">
+    <ul class="nav navbar-nav clearfix">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="['/portal']">首页</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/portal/app-market']">应用工厂</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/portal/dataservice']">数据服务</a>
+      </li>
+         <li routerLinkActive="active">
+        <a href="javascript:void(0);" >解决方案</a>
+      </li>
+         <li routerLinkActive="active">
+        <a href="javascript:void(0);">资源</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="top-menu">
+    <ul class="nav navbar-nav pull-right">
+      <li class="dropdown">
+        <a [routerLink]="['/workbench']">
+          工作台
+        </a>
+      </li>
+      <li class="dropdown dropdown-user" *ngIf="authService.isLoggedIn">
+        <a href="javascript:void(0)" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown"
+           data-close-others="true">
+          <div class="user-img img-circle"></div>
+          <!--<img alt="" class="img-circle" src="../../../assets/css/themes/img/avatar3_small.jpg"/>-->
+          <span class="username username-hide-on-mobile">{{authService.userInfo.userName}}</span>
+          <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu account-nav" role="menu" aria-labelledby="dropdownMenu1">
+          <!--<li role="presentation"><a role="menuitem" tabindex="-1" (click)="accountSetting()">设置</a></li>-->
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)" (click)="logout()">退出</a>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="!authService.isLoggedIn" class="login-li">
+        <a href="javascript:void(0)" (click)="login($event)" (mouseover)="mouseover()">
+          登录
+        </a>
+        <div class="login-pop hidden">
+          <form class="form-horizontal">
+            <div class="log-info" [ngClass]="{hidden: message==null}">
+              <div class="remove-icon"  (click)="message=null"></div>
+              <div class="login-msg">{{message}}</div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12 ">
+                <input class="form-control" type="text" name="name" [(ngModel)]="user.username" placeholder="用户名 / 邮箱">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12 ">
+                <input class="form-control" (keydown)="keyDown($event)"  type="password"  name="password" [(ngModel)]="user.password" placeholder="密码">
+              </div>
+            </div>
+            <div class="links">
+              <a class="forget-psd" [routerLink]="['/forgetPass']">忘记密码</a>
+            </div>
+            <button type="button" class="btn btn-success btn-login" (click)="doLogin()">登&nbsp;&nbsp;录</button>
+          </form>
+        </div>
+      </li>
+      <li *ngIf="!authService.isLoggedIn">
+        <a  [routerLink]="['/register']">
+          注册
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- END TOP NAVIGATION MENU -->
+  <div class="search">
+    <input type="text" [(ngModel)]="keyWord" (keydown)="keyDown1($event)" class="form-control"
+           placeholder="请输入关键字">
+    <i class="fa fa-search pointer" (click)="search()"></i>
+  </div>
+</div>
+<!-- END HEADER INNER -->
+<!-- 登录modal start-->
+<!--<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}">-->
+<div class="modal fade" bsModal #staticModal="bs-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="staticModal.hide()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">用户登录</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="alert alert-danger" [ngClass]="{hidden: loginMsg==null}">
+            <button class="close" data-close="alert" (click)="loginMsg=null"></button>
+            <span>{{loginMsg}}</span>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12 ">
+              <input class="form-control" type="text" name="name" [(ngModel)]="user.username" placeholder="用户名">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12 ">
+              <input class="form-control" type="password"  name="password" [(ngModel)]="user.password" placeholder="密码">
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-login" (click)="doLogin()">登&nbsp;&nbsp;录</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 登录 modal end-->

@@ -1,0 +1,33 @@
+.app{
+  border: solid 1px #E4E4E4;
+  box-shadow: 0 0 10px #e4e4e4;
+  width: 253px;
+  height: 116px;
+  color: #999999;
+  display: inline-block;
+  margin: 13px 15px 13px 0;
+}
+.app > div {
+  float: left;
+  height: 100%;
+}
+
+.app .app-dic {
+  padding: 15px;
+  width: 165px;
+}
+.app-dic span{
+  display: block;
+  margin-bottom: 4px;
+}
+.app-dic .app-name{
+  color: #666666;
+  font-size: 14px;
+  font-weight:bolder;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.app .description{
+  word-wrap: break-word;
+  word-break: break-all;
+}

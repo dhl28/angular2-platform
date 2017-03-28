@@ -1,0 +1,159 @@
+<banner></banner>
+<div class="data-service">
+  <div class="title">
+    我们致力于云端数据分析服务
+  </div>
+  <div class="service-list">
+    <div class="item service-1">
+      <div class="name">
+        海量云端应用
+      </div>
+      <div class="dec">
+        一键分析满足多种业务场景
+      </div>
+    </div>
+    <div class="item service-2">
+      <div class="name">
+        定制云端服务
+      </div>
+      <div class="dec">
+        即用即取定制数据服务API
+      </div>
+    </div>
+    <div class="item service-3">
+      <div class="name">
+        个人工作台
+      </div>
+      <div class="dec">
+        云端部署快速上传分享
+      </div>
+    </div>
+  </div>
+</div>
+<div class="data-analysis">
+  <div class="title">
+    做您专属的数据分析专家
+  </div>
+  <div class="aa-list">
+    <div class="item" *ngFor="let item of appList">
+      <div class="industry-name">{{item.category}}</div>
+      <div class="industry-dec">{{item.description}}</div>
+      <hr class="split">
+      <div class="aa-container">
+        <div class="row">
+          <div class="aa-icon {{item.children[0].class}} active" (click)="viewApp(item.children[0])">
+            <div class="dec">{{item.children[0]?item.children[0].appName:expected}}</div>
+          </div>
+          <div class="aa-icon aa-expected" (click)="viewApp(item.children[1])">
+            <div class="dec">{{item.children[1]?item.children[1].appName:expected}}</div>
+          </div>
+        </div>
+        <div  class="row">
+          <div class="aa-icon aa-expected" (click)="viewApp(item.children[2])">
+            <div class="dec">{{item.children[2]?item.children[2].appName:expected}}</div>
+          </div>
+          <div class="aa-icon aa-expected" (click)="viewApp(item.children[3])">
+            <div class="dec">{{item.children[3]?item.children[3].appName:expected}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="data-api">
+  <div class="title">
+    为您定制数据服务API
+  </div>
+  <div class="api-list">
+    <div class="row">
+      <div class="section">
+        <div class="api-icon api-daily-life">
+          <div class="dec">生活类服务</div>
+        </div>
+        <div class="api-container">
+          <div class="api-row">
+            <span class="api-item active" (click)="viewApiDetail($event)">手机归属地查询</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+          <div class="api-row">
+            <span class="api-item">敬请期待</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+          <div class="api-row">
+            <span class="api-item">敬请期待</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="api-icon api-public-affairs">
+          <div class="dec">公共事务服务</div>
+        </div>
+        <div class="api-container">
+          <div class="api-row">
+            <span class="api-item active" (click)="viewApiDetail($event)">身份证号码查询</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+          <div class="api-row">
+            <span class="api-item">敬请期待</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+          <div class="api-row">
+            <span class="api-item">敬请期待</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="section">
+        <div class="api-icon api-corp-service">
+          <div class="dec">气象水利服务</div>
+        </div>
+        <div class="api-container">
+          <div class="api-row">
+            <span class="api-item active" (click)="viewApiDetail($event)">PM2.5空气质量指数</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+          <div class="api-row">
+            <span class="api-item">敬请期待</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+          <div class="api-row">
+            <span class="api-item">敬请期待</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="api-icon api-financial-services">
+          <div class="dec">金融理财服务</div>
+        </div>
+        <div class="api-container">
+          <div class="api-row">
+            <span class="api-item active" (click)="viewApiDetail($event)">上市公司信息</span>
+            <span class="api-item active" (click)="viewApiDetail($event)">上市公司资产负债</span>
+          </div>
+          <div class="api-row">
+            <span class="api-item active" (click)="viewApiDetail($event)">上市公司利润</span>
+            <span class="api-item active" (click)="viewApiDetail($event)">上市公司现金流量</span>
+          </div>
+          <div class="api-row">
+            <span class="api-item">敬请期待</span>
+            <span class="api-item">敬请期待</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-bottom">
+  <div class="title">
+    现在开通，立享大数据免费体验
+  </div>
+  <div class="links">
+    <button class="btn-experience">立即体验</button>
+  </div>
+</div>
+<footer class="page-footer"></footer>

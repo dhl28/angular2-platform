@@ -1,0 +1,36 @@
+<!-- BEGIN PAGE SPINNER -->
+<div ng-spinner-bar class="page-spinner-bar" [ngClass]="{'hidden':true}">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
+
+<!-- END PAGE SPINNER -->
+
+<!-- BEGIN HEADER -->
+<header class="page-header md-shadow-z-1-i navbar"></header>
+<!--<div data-ng-include="'tpl/header.html'" data-ng-controller="HeaderController" class="page-header md-shadow-z-1-i navbar navbar-fixed-top">-->
+<!--</div>-->
+<!-- END HEADER -->
+
+<div class="clearfix">
+</div>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+
+  <!-- BEGIN CONTENT -->
+  <div class="page-content-wrapper">
+    <div class="page-content portal-content">
+      <div class="clearfix"></div>
+      <!-- BEGIN ACTUAL CONTENT -->
+      <router-outlet></router-outlet>
+      <!-- END ACTUAL CONTENT -->
+    </div>
+  </div>
+  <!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
+
+<!-- BEGIN FOOTER -->
+

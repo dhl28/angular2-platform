@@ -1,0 +1,113 @@
+<div class="content-container dsDetail">
+  <bread-crumbs [breadCrumbs]="breadCrumbs"></bread-crumbs>
+  <hr>
+  <div class="service">
+    <div class="icon"></div>
+    <div class="dic">
+      <span class="firstLine">
+        <span class="service-name">{{service.name}}</span>
+        <span class="likeShare">
+          {{numberlike}} &nbsp;<i (click)="likeOrUnlike()" class="fa pointer" [ngClass]="{'fa-heart': isLiked,'fa-heart-o':!isLiked}" aria-hidden="true"></i>
+          &nbsp;&nbsp;&nbsp;&nbsp;<i aria-hidden="true" class="fa fa-share-square-o pointer"></i>
+        </span>
+      </span>
+      <span class="des">{{service.note}}</span>
+      <span>更新日期：{{service.ts| date:"yyyy/MM/dd"}}</span>
+    </div>
+  </div>
+  <div class="data-service">
+    <div class="tabbable-line">
+      <ul class="nav nav-tabs ">
+        <li class="active">
+          <a href="#service-api" data-toggle="tab">
+            API接口
+          </a>
+        </li>
+        <li>
+          <a href="#service-detail" data-toggle="tab">
+            调用示例
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="service-api">
+            <h4 class="dsName">调用地址</h4>
+            <p class="dsData">{{service.requesturl}}</p>
+            <h4 class="dsName">请求方式</h4>
+            <p class="dsData">{{service.requestmethod}}</p>
+            <h4 class="dsName">返回类型</h4>
+            <p class="dsData">{{service.returntype}}</p>
+            <h4 class="dsName">请求参数</h4>
+            <table class="table table-striped table-bordered table-hover">
+              <thead>
+              <tr>
+                <th>参数名</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>描述</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of service.requestargs">
+                <td>{{item.name}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.isNeed}}</td>
+                <td>{{item.note}}</td>
+              </tr>
+              </tbody>
+            </table>
+            <h4 class="dsName">返回字段</h4>
+            <table class="table table-striped table-bordered table-hover">
+              <thead>
+              <tr>
+                <th>参数名</th>
+                <th>数据类型</th>
+                <th>描述</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of service.returnfields">
+                <td>{{item.name}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.note}}</td>
+              </tr>
+              </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane" id="service-detail">
+          <h4 class="dsName">请求地址</h4>
+          <p>{{service.requestsample}}</p>
+          <h4 class="dsName">请求参数</h4>
+          <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+              <th *ngFor="let item of requestsampleParams">{{item.skey}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr >
+              <td *ngFor="let item of requestsampleParams">{{item.svalue}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <h4 class="dsName">返回结果</h4>
+            <div class="dataServiceTableDiv">
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th *ngFor="let item of serviceResultColKeys">{{item}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of serviceResult.result">
+                    <td *ngFor="let itemKey of serviceResultColKeys">{{item[itemKey]}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

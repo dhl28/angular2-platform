@@ -1,0 +1,40 @@
+<div class="content-container">
+  <div class="tabbable-line" [ngClass]="{appMarket: !isPlatform}">
+    <ul class="nav nav-tabs ">
+      <li *ngFor="let item of appTypes;let first = first"  [ngClass]="{active: first}">
+        <a href="#{{item.pk}}" data-toggle="tab" (click)="getAppsByTypepk(item.pk)">
+          {{item.name}}
+        </a>
+      </li>
+      <div class="pull-right" *ngIf="isPlatform">
+        <div class="search">
+          <input type="text" [(ngModel)]="keyWord" (keydown)="keyDown($event)" class="form-control search"
+                 placeholder="请输入关键词">
+          <i class="fa fa-search pointer" (click)="search()"></i>
+        </div>
+      </div>
+    </ul>
+    <div class="tab-content">
+      <div class="appMarketOrderDiv">
+        <table>
+          <tr>
+            <th class="orderByTime" [ngClass]="{'no-order': sortName != 'DATETIME'}"(click)="orderByTime()">按时间<div class="ordericon"  [ngClass]="{'order-down': sortName == 'DATETIME' && isDesc,'order-up': sortName == 'DATETIME' && !isDesc,'order-no': sortName != 'DATETIME'}"></div></th>
+            <th class="orderByHeat" [ngClass]="{'no-order': sortName == 'DATETIME'}"(click)="orderByHeat()">按热度<div class="ordericon"  [ngClass]="{'order-down': sortName != 'DATETIME' && isDesc,'order-up': sortName != 'DATETIME' && !isDesc,'order-no': sortName == 'DATETIME'}"></div></th>
+            <th class="totalApps">共{{totalItems}}个应用</th>
+          </tr>
+        </table>
+      </div>
+      <div class="tab-pane" id="{{item.pk}}"  *ngFor="let item of appTypes;let first = first"  [ngClass]="{active: first}">
+        <app-unit  *ngFor="let app of showApps" [app]="app"></app-unit>
+        <loading-effect [isLoading]="isLoading"></loading-effect>
+      </div>
+      <div class="text-center">
+        <pagination *ngIf="showPagination" [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage"
+                    (pageChanged)="pageChanged($event)" class="pagination-sm"
+                    [itemsPerPage]="itemsPerPage" [maxSize]="maxSize" [boundaryLinks]="true" [rotate]="false"
+                    previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+        </pagination>
+      </div>
+    </div>
+  </div>
+</div>

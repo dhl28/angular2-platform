@@ -1,0 +1,88 @@
+<div class="tool-bar">
+  <button class="btn btn-upload" (click)="upload()">从本地上传</button>
+  <div class="pull-right">
+    <div class="search">
+      <input type="text" [(ngModel)]="keyWord" (keydown)="keyDown($event)" class="form-control search"
+             placeholder="请输入应用名称">
+      <i class="fa fa-search pointer" (click)="search()"></i>
+    </div>
+  </div>
+</div>
+<table class="table table-hover break-word tb-myPlatform">
+  <thead>
+  <tr>
+    <th width="25%" class="first-column" (click)="order('appName')">名称
+      <div class="order-down" [ngClass]="{'order-down': sortFieldName=='appName'&& isDesc,'order-up': sortFieldName=='appName'&& !isDesc,'order-no': sortFieldName!='appName'}"></div>
+    </th>
+    <th width="25%">简介</th>
+    <th width="25%" (click)="order('modifyTime')">更新时间
+      <div [ngClass]="{'order-down': sortFieldName=='modifyTime'&& isDesc,'order-up': sortFieldName=='modifyTime'&& !isDesc,'order-no': sortFieldName!='modifyTime'}"></div>
+    </th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of showApps">
+    <td class="first-column">
+      <a class="appName pull-left" (click)="viewApp(item)">{{item.appName}}</a>
+      <a class="edit-name pull-left">
+        <li class="fa fa-edit" (click)="editName($event,item)" tooltip="修改名称"></li>
+      </a>
+    </td>
+    <td title="{{item.description}}">{{item.description}}</td>
+    <td>{{item.modifyTime}}</td>
+    <td class="operation">
+      <a class="cell-operation" [ngClass]="{disabled: item.state==='RUNNING'}">
+        <li class="icon-font icon-execute" tooltip="运行" (click)="runApp(item)"></li>
+      </a>
+      <a class="cell-operation">
+        <li *ngIf="!item.ispublic" class="cell-icon icon-publish" (click)="setPublic(item)" tooltip="发布"></li>
+        <li *ngIf="item.ispublic" class="cell-icon icon-cancel-publish" (click)="cancelPublic(item)" tooltip="取消发布"></li>
+      </a>
+      <a class="cell-operation">
+        <li class="icon-font icon-remove" tooltip="删除" (click)="deleteApp(item)"></li>
+      </a>
+      <!--<a class="cell-operation">-->
+      <!--<li class="icon-font icon-download" tooltip="下载"></li>-->
+      <!--</a>-->
+      <!--<li class="dropdown cell-text">-->
+        <!--<a href="javascript:void(0)" class="dropdown-toggle cell-operation" dropdown-menu-hover data-toggle="dropdown"-->
+           <!--data-close-others="true" tooltip="更多操作" [tooltipAppendToBody]="true">-->
+      <!--<li class="icon-font icon-more"></li>-->
+      <!--</a>-->
+      <!--<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">-->
+        <!--<li role="presentation"><a role="menuitem" tabindex="-1" (click)="setPublic(item)">设置公开</a></li>-->
+        <!--<li role="presentation"><a role="menuitem" tabindex="-1" (click)="deleteApp(item)">删除</a>-->
+        <!--</li>-->
+      <!--</ul>-->
+      <!--</li>-->
+    </td>
+  </tr>
+  <loading-effect [isLoading]="isLoading"></loading-effect>
+  <tr *ngIf="!isLoading && showApps && showApps.length==0">
+    <td class="text-center" colspan="4">
+      没有符合结果的记录
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="text-center">
+  <!--<div class="pagination-info">-->
+  <!--第{{(currentPage-1)*itemsPerPage+1}}-{{currentPage*itemsPerPage}}行  共{{totalItems}}行-->
+  <!--&lt;!&ndash;<select  [(ngModel)]="itemsPerPage" name="itemsPerPage" (ngModelChange)="changeItemsPerPage($event)">&ndash;&gt;-->
+  <!--<select  [(ngModel)]="itemsPerPage" name="itemsPerPage">-->
+  <!--<option>10</option>-->
+  <!--<option>20</option>-->
+  <!--<option>100</option>-->
+  <!--</select>行/页-->
+  <!--</div>-->
+  <pagination *ngIf="showPagination" [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage"
+              (pageChanged)="pageChanged($event)" class="pagination-sm"
+              [itemsPerPage]="itemsPerPage" [maxSize]="maxSize" [boundaryLinks]="true" [rotate]="false"
+              previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+</div>
+<app-run-modal [app]="seletedApp" (afterAppRun)="afterAppRun($event)" #appRunModal></app-run-modal>
+<!-- app删除提示框 -->
+<msg-modal #msgModal [options]="msgModalOpts0" (msgModalBtnEvent)="msgModalBtnEvent0($event)"></msg-modal>
+<!-- app公开提示框 -->
+<msg-modal #msgModal1 [options]="msgModalOpts1" [msg]="msg" (msgModalBtnEvent)="msgModalBtnEvent1($event)"></msg-modal>

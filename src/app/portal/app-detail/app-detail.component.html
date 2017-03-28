@@ -1,0 +1,39 @@
+<div class="content-container" [ngClass]="{appMarket: !isPlatform}">
+  <bread-crumbs [breadCrumbs]="breadCrumbs"></bread-crumbs>
+  <hr>
+  <div class="app-detail">
+    <div class="icon"></div>
+    <div class="dic">
+      <span>
+        <span class="app-name">{{app.appName}}</span>
+        <span>
+          {{app.numberlike}} &nbsp;<i (click)="likeOrUnlike()" class="fa pointer" [ngClass]="{'fa-heart': isLiked,'fa-heart-o':!isLiked}" aria-hidden="true"></i>
+        </span>
+       <!-- <span>
+           <i class="fa fa-share-square-o pointer" aria-hidden="true"></i>
+        </span>-->
+      </span>
+      <span>更新日期：{{app.modifyTime}} &nbsp;&nbsp;&nbsp;版本：{{app.version}} &nbsp;&nbsp;&nbsp;上传者：{{app.creator}}</span>
+      <span>
+        <a class="btn btn-sm btn-success" [ngClass]="{disabled: appIsRunning}" (click)="runApp()"><i class="fa fa-play" aria-hidden="true"></i> &nbsp;&nbsp;运行</a>
+        <!--<a class="btn btn-sm btn-default"><i class="icon-font icon-download" aria-hidden="true"></i> &nbsp;&nbsp;下载</a>-->
+        <a class="btn btn-sm btn-default" (click)="duplicateAppToMyPlatform()"><i class="fa fa-copy" aria-hidden="true"></i> &nbsp;&nbsp;复制到我的工作台</a>
+      </span>
+    </div>
+  </div>
+  <hr>
+  <!--简介 -->
+  <div class="description">
+    <div class="title">{{app.appName}}</div>
+    <p>
+      {{app.description}}
+    </p>
+  </div>
+  <hr>
+  <!--报告预览 -->
+  <div class="report-overview">
+    <div class="title">报告预览</div>
+    <report [hideBreadcrumbs]="true" [recordPK]="recordPK" #report></report>
+  </div>
+</div>
+<app-run-modal [app]="app"  (afterAppRun)="afterAppRun($event)" #appRunModal></app-run-modal>

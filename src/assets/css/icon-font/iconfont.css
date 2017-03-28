@@ -1,0 +1,49 @@
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.eot');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+  url('iconfont.woff') format('woff'),
+  url('iconfont.ttf') format('truetype'),
+  url('iconfont.svg#iconfont') format('svg');
+}
+
+.icon-font {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-card-active:before { content: "\e63d"; }
+
+.icon-running-result:before { content: "\e63e"; }
+
+.icon-card:before { content: "\e63f"; }
+
+.icon-running-result-active:before { content: "\e641"; }
+
+.icon-app-market:before { content: "\e642"; }
+
+.icon-more:before { content: "\e643"; }
+
+.icon-app-market-active:before { content: "\e644"; }
+
+.icon-list-mode:before { content: "\e645"; }
+
+.icon-my-platform:before { content: "\e646"; }
+
+.icon-download:before { content: "\e647"; }
+
+.icon-my-platform-active:before { content: "\e648"; }
+
+.icon-list-mode-active:before { content: "\e649"; }
+
+.icon-remove:before { content: "\e64b"; }
+
+.icon-copy:before { content: "\e64c"; }
+
+.icon-execute:before{ content: "\e64f"; }
+
+.icon-view:before { content: "\e64d"; }

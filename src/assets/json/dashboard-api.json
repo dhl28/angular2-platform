@@ -1,0 +1,50 @@
+[
+  {
+    "category": "生活类服务",
+    "children": [
+      {
+        "apiPk": "ac1dd206-6f72-4623-a209-c3799d8ac03e",
+        "apiName": "手机归属地查询"
+      }
+    ]
+  },
+  {
+    "category": "公共事务服务",
+    "children": [
+      {
+        "apiPk": "192fd614-dc81-47cc-bbad-89e611d2633b",
+        "apiName": "身份证号码查询"
+      }
+    ]
+  },
+  {
+    "category": "气象水利服务",
+    "children": [
+      {
+        "apiPk": "67bda02d-303a-45b4-a479-ebb0b3ff597b",
+        "apiName": "PM2.5空气质量指数"
+      }
+    ]
+  },
+  {
+    "category": "金融理财服务",
+    "children": [
+      {
+        "apiPk": "82332aea-473a-4884-9d46-ea51eb59a93b",
+        "apiName": "上市公司信息"
+      },
+      {
+        "apiPk": "382fd8c7-e3d8-4170-930d-8833cb3a90ae",
+        "apiName": "上市公司资产负债"
+      },
+      {
+        "apiPk": "51d0bc48-6c6a-4968-94f3-74499a237bb6",
+        "apiName": "上市公司利润"
+      },
+      {
+        "apiPk": "0526d0f4-cb38-4012-9559-254876b540b7",
+        "apiName": "上市公司现金流量"
+      }
+    ]
+  }
+]

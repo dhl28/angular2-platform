@@ -1,0 +1,93 @@
+<style>
+  .modal {
+    text-align: center;
+    padding: 0!important;
+  }
+
+  .modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    width: 390px;
+    height:182px;
+  }
+  .modal .modal-header {
+    border-bottom:none;
+    padding-bottom: 5px;
+  }
+  h4 {
+    font-size: 15px;
+  }
+  .btn{
+    padding: 6px 20px;
+    font-size: 13px;
+  }
+  .modal-footer .btn + .btn{
+    margin-top: 0px;
+    margin-left: 8px;
+  }
+  .btn-cancel {
+    background-color: #ffffff;
+    color: #666666;
+  }
+  .btn-confirm{
+    color: #fff;
+    background-color: #FE7E27;
+    border-color: #FE7827;
+  }
+  .img-delete , .msg-content{
+    display: inline-block;
+  }
+  .img-delete{
+    font-size: 17px;
+    width: 38px;
+    height: 38px;
+    vertical-align: top;
+    position: relative;
+    top: -5px;
+    margin-right: 10px;
+  }
+  .msg{
+    font-size: 17px;
+    margin-bottom: 9px;
+    color: #333333;
+  }
+  .sub-msg{
+    font-size: 12px;
+    color: #999999;
+  }
+  .modal-backdrop.in {
+    opacity: 0;
+  }
+</style>
+<div class="modal fade msg-modal" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="staticModal.hide()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">系统提示</h4>
+      </div>
+      <div class="modal-body">
+        <div class="img-delete">
+
+        </div>
+        <div class="msg-content">
+          <div class="msg">{{msg}}</div>
+          <div class="sub-msg" *ngIf="options.type=='delete'">删除后无法恢复</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancel" (click)="cancel()">取消</button>
+        <button type="button" class="btn btn-confirm" (click)="confirm()">{{getConfirmBtnLabel()}}</button>
+      </div>
+    </div>
+  </div>
+</div>

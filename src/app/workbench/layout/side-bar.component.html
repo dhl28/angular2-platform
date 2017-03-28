@@ -1,0 +1,26 @@
+<div class="page-sidebar navbar-collapse">
+
+  <ul class="page-sidebar-menu page-sidebar-menu-light " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+    <li class="sidebar-search-wrapper" ng-class="{hidden:settings.hideSidebarSearch}">
+    </li>
+    <li class="start" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['./']">
+        <i class="icon-font icon-my-platform"></i>
+        <span class="title">我的应用</span>
+      </a>
+    </li>
+    <li routerLinkActive="active" >
+      <a [routerLink]="['./app-market']">
+        <i class="icon-font icon-app-market"></i>
+        <span class="title">应用工厂</span>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['./app/running-result']">
+        <i class="icon-font icon-running-result"></i>
+        <span class="title">运行结果</span>
+      </a>
+    </li>
+  </ul>
+  <!-- END SIDEBAR MENU -->
+</div>

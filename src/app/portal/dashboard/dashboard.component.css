@@ -1,0 +1,217 @@
+.data-service {
+  padding: 80px 0 96px 0;
+  height: 420px;
+}
+
+.data-analysis {
+  padding-top: 50px;
+  height: 557px;
+  background-color: #F7F7F7;
+}
+
+.data-api {
+  height: 557px;
+  padding: 80px 0 98px 0;
+}
+.bg-bottom{
+  padding-top: 50px;
+  height: 160px;
+  width: 100%;
+}
+.title {
+  font-size: 27px;
+  font-weight: 500;
+  color: #333333;
+  text-align: center;
+}
+
+.service-list {
+  width: 1014px;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-list .item {
+  width: 168px;
+  height: 165px;
+  float: left;
+  /*background-color: #EDF6F1;*/
+}
+
+.service-list .item + .item {
+  margin-left: 255px;
+}
+
+.service-list .item .name {
+  margin-top: 102px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 17px;
+  color: #666666;
+}
+
+.service-list .item .dec {
+  text-align: center;
+  font-size: 14px;
+  color: #888888;
+}
+
+.aa-list {
+  width: 1194px;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aa-list .item {
+  width: 350px;
+  height: 350px;
+  float: left;
+  border: 1px solid #e9e9e9;
+  background-color: #ffffff;
+}
+.aa-list .item:hover{
+  border-color: #ea7e35;
+  box-shadow: 0 0 21px #ea7e35;
+}
+.aa-list .item + .item {
+  margin-left: 72px;
+}
+
+.data-analysis .industry-name {
+  text-align: center;
+  margin: 20px 0 18px 0;
+  font-size: 15px;
+  color: #333333;
+  font-weight: 600;
+}
+
+.data-analysis .industry-dec {
+  text-align: center;
+  font-size: 14px;
+  color: #666666;
+}
+
+.data-analysis .split {
+  margin: 10px auto;
+  width: 258px;
+  border-top: 1px solid #d4d4d4;
+}
+.aa-list .item:hover .split{
+  border-top-color: #ea7e35;
+}
+
+.aa-container {
+  padding: 0 60px;
+}
+
+.aa-icon {
+  width: 72px;
+  height: 90px;
+  float: left;
+}
+.aa-icon.active{
+  cursor: pointer;
+}
+
+.aa-icon + .aa-icon {
+  float: right;
+}
+
+.aa-list .row + .row {
+  clear: both;
+  margin-top: 30px;
+}
+
+.aa-icon .dec {
+  margin-top: 80px;
+  text-align: center;
+}
+.api-list{
+  width: 1000px;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.api-list .section {
+  float: left;
+  height: 100px;
+  width: 420px;
+}
+.api-list .section +  .section {
+  float: right;
+}
+.api-list .section >div{
+  float: left;
+}
+
+
+.api-icon {
+  width: 84px;
+  height: 90px;
+  float: left;
+}
+.api-icon.active{
+  cursor: pointer;
+}
+
+.api-icon + .api-icon {
+  float: right;
+}
+
+.api-list .row + .row {
+  clear: both;
+  margin-top: 70px;
+}
+
+.api-icon .dec {
+  margin-top: 80px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.api-container{
+  padding: 14px 0 14px 34px;
+  width: 336px;
+}
+.api-container .api-row{
+  position: relative;
+}
+.api-row + .api-row{
+  margin-top: 15px;
+}
+.api-item{
+  font-size: 14px;
+  color: #666666;
+  cursor: pointer;
+}
+.api-item.active{
+  cursor: pointer;
+}
+.api-item + .api-item{
+  position: absolute;
+  left: 160px;
+}
+.api-item:hover{
+  text-decoration: underline;
+  color:#ea7e35
+}
+.bg-bottom .title{
+  color: #ffffff;
+  font-size: 21px;
+}
+.bg-bottom .links{
+  margin-top: 28px;
+  text-align: center;
+}
+.bg-bottom .btn-experience{
+  border: 1px solid #ffffff;
+  outline: none;
+  color: #ffffff;
+  background: none;
+  font-size: 15px;
+  padding: 5px 18px;
+}

@@ -1,0 +1,8 @@
+<div class="service">
+  <div class="icon" (click)="viewDetail()"></div>
+  <div class="dic">
+    <span class="service-name" (click)="viewDetail()">{{service.apiName}}</span>
+    <span class="des">简介：{{service.note}}</span>
+    <span>更新日期：{{service.ts| date:"yyyy/MM/dd"}}</span>
+  </div>
+</div>

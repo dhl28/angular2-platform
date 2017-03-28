@@ -1,0 +1,50 @@
+.myAnimate
+{
+    width:150px;
+    height:273px;
+    background: url("/public/images/totoro.gif") center no-repeat;
+    background-size:cover;
+    position:fixed;
+    animation:myfirst 5s linear 2s infinite normal;
+    /* Firefox: */
+    -moz-animation:myfirst 5s linear 2s infinite normal;
+    /* Safari and Chrome: */
+    -webkit-animation:myfirst 5s linear 2s infinite normal;
+    /* Opera: */
+    -o-animation:myfirst 5s linear 2s infinite normal;
+}
+
+@keyframes myfirst
+{
+    0%   {right:0px; top:0px;}
+    25%  { right:25%; top:0px;}
+    50%  { right:50%; top:0px;}
+    75%  { right:75%; top:0px;}
+    100% { right:calc(100% - 100px); top:0px;}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+    0%   {right:0px; top:0px;}
+    50%  { right:50%; top:0px;}
+    75%  { right:75%; top:0px;}
+    100% { right:calc(100% - 100px); top:0px;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+    0%   {background:red; left:0px; top:0px;}
+    25%  {background:yellow; left:200px; top:0px;}
+    50%  {background:blue; left:200px; top:200px;}
+    75%  {background:green; left:0px; top:200px;}
+    100% {background:red; left:0px; top:0px;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+    0%   {background:red; left:0px; top:0px;}
+    25%  {background:yellow; left:200px; top:0px;}
+    50%  {background:blue; left:200px; top:200px;}
+    75%  {background:green; left:0px; top:200px;}
+    100% {background:red; left:0px; top:0px;}
+}

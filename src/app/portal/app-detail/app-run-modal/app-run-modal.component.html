@@ -1,0 +1,55 @@
+<!-- 运行app modal start-->
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="staticModal.hide()"><span
+          aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">{{app.appName}}</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+         <!-- <div class="section data-source">
+            <div class="section-title">修改数据源</div>
+            <hr>
+            <input type="file">
+          </div>-->
+          <div class="section">
+            <div class="section-title">修改参数</div>
+            <hr>
+            <div class="alert alert-danger" [ngClass]="{hidden: validationMsg.length==0}">
+              <button class="close" data-close="alert" (click)="validationMsg=[]"></button>
+              <div *ngFor="let item of validationMsg">{{item}}</div>
+            </div>
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th>变量名</th>
+                <th>类型</th>
+                <th>变量值</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of wfVars; let i=index">
+                <td>{{item.varName}}</td>
+                <td>{{getVarTpeChs(item)}}</td>
+                <td class="edit-cell"><input type="text" name="{{item.varName + i}}" [(ngModel)]="item.varValue" class="form-control"></td>
+              </tr>
+              <tr *ngIf="wfVars && wfVars.length==0">
+                <td colspan="3" class="text-center">
+                  没有符合结果的记录
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="staticModal.hide()">取消</button>
+        <button type="button" class="btn btn-primary" (click)="doRunApp()">运行</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 运行app modal end-->

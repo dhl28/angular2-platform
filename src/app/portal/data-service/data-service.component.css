@@ -1,0 +1,56 @@
+:host-context(.platform-content) .content-container {padding: 0}
+.pagination-info{float: left;}
+.dataService .tabbable-line{
+  margin:0 200px;
+}
+.tabbable-line > .nav-tabs > li > a {
+  border: 0;
+  margin-right: 0;
+  color: #999999;
+}
+.tabbable-line > .nav-tabs > li.active {
+  border-bottom: 3px solid #fe7e27;
+  position: relative;
+}
+.tabbable-line > .nav-tabs > li.active > a {
+  border: 0;
+  color: #333;
+}
+.tabbable-line > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+.tabbable-line > .nav-tabs > li:hover {
+  border-bottom: 0;
+  border-bottom: 3px solid #fbcdcf;
+}
+.appMarketOrderDiv th {
+  text-align: right;
+  border: 1px solid #E4E4E4;
+  width: 90px;
+  font-size: 14px;
+  color: #666666;
+  font-weight: normal;
+  height: 28px;
+}
+.orderByTime{
+  background: #fff;
+}
+.orderByHeat{
+  background: #fff;
+}
+.appMarketOrderDiv{
+  margin-bottom: 5px
+}
+.appMarketOrderDiv .totalApps{
+  border: 0px;
+  width: 200px;
+  text-align: left;
+  padding-left: 11px;
+}
+.no-order{
+  background: #f5f5f5;
+}
+.pageContent{
+  margin-top: 20px;
+}
+

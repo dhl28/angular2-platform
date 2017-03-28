@@ -1,0 +1,33 @@
+<div class="content-container dataService">
+  <div class="tabbable-line">
+    <ul class="nav nav-tabs ">
+      <li *ngFor="let item of appTypes;let first = first"  [ngClass]="{active: first}">
+        <a href="#{{item.pk}}" data-toggle="tab" (click)="getAppsByTypepk(item.name)">
+          {{item.name}}
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="appMarketOrderDiv">
+        <table>
+          <tr>
+            <th class="orderByTime" [ngClass]="{'no-order': sortName != 'ts'}" (click)="orderByTime()">按时间<div class="ordericon"  [ngClass]="{'order-down': sortName == 'ts' && isDesc,'order-up': sortName == 'DATETIME' && !isDesc,'order-no': sortName != 'ts'}"></div></th>
+            <th class="orderByHeat" [ngClass]="{'no-order': sortName == 'ts'}" (click)="orderByHeat()">按热度<div class="ordericon"  [ngClass]="{'order-down': sortName != 'ts' && isDesc,'order-up': sortName != 'DATETIME' && !isDesc,'order-no': sortName == 'ts'}"></div></th>
+            <th class="totalApps">共{{totalItems}}个应用</th>
+          </tr>
+        </table>
+      </div>
+      <div class="tab-pane" id="{{item.id}}"  *ngFor="let item of appTypes;let first = first"  [ngClass]="{active: first}">
+        <loading-effect [isLoading]="isLoading"></loading-effect>
+        <service-unit  *ngFor="let service of showApps" [service]="service"></service-unit>
+      </div>
+      <div class="text-center pageContent">
+        <pagination *ngIf="showPagination" [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage"
+                    (pageChanged)="pageChanged($event)" class="pagination-sm"
+                    [itemsPerPage]="itemsPerPage" [maxSize]="maxSize" [boundaryLinks]="true" [rotate]="false"
+                    previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+        </pagination>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,134 @@
+.app .app-icon {
+  width: 71px;
+  height: 71px !important;
+  background: url(../../assets/img/app.png) center center no-repeat;
+  background-size: 100% auto;
+  margin: 15px 5px 0 10px;
+  border: 1px solid #E4E4E4;
+}
+.app .app-run {
+  width: 85px;
+  background: url("../../assets/img/app-run.png") center center no-repeat;
+  border-left: solid 1px #E4E4E4;
+  cursor: pointer;
+}
+.order-no {
+  height: 12px;
+  width: 7px;
+  background: url("../../assets/img/orderno.png") center center no-repeat;
+  float: right;
+  margin: 4px 15px 0px 8px;
+}
+.order-up {
+  height: 12px;
+  width: 7px;
+  background: url("../../assets/img/orderup.png") center center no-repeat;
+  float: right;
+  margin: 4px 15px 0px 8px;
+}
+.order-down {
+  height: 12px;
+  width: 7px;
+  background: url("../../assets/img/orderdown.png") center center no-repeat;
+  float: right;
+  margin: 4px 15px 0px 8px;
+}
+.service .icon{
+  width: 85px;
+  background: url("../../assets/img/icon-service.png") center center no-repeat;
+  background-size: 100% auto;
+}
+.app-detail .icon{
+  width: 140px;
+  background: url("../../assets/img/app.png") center center no-repeat;
+  background-size: 100% auto;
+}
+.banner{
+  width: 100%;
+  height: 405px;
+}
+.banner1{
+  background: url("../../assets/img/banner/banner.png") center center no-repeat;
+}
+.banner2{
+  background: url("../../assets/img/banner/banner.png") center center no-repeat;
+}
+.banner3{
+  background: url("../../assets/img/banner/banner.png") center center no-repeat;
+}
+.msg-modal .img-delete{
+  background: url("../../assets/img/img-info.png") center center no-repeat;
+}
+
+.service-1{
+  background: url("../../assets/img/front-page/service-1.png") center center no-repeat;
+}
+.service-2{
+  background: url("../../assets/img/front-page/service-2.png") center center no-repeat;
+}
+.service-3{
+  background: url("../../assets/img/front-page/service-3.png") center center no-repeat;
+}
+.aa-portrait{
+  background: url("../../assets/img/front-page/aa-portrait.png") top center no-repeat;
+}
+.aa-expected{
+  background: url("../../assets/img/front-page/aa-expected.png") top center no-repeat;
+}
+.aa-fob-warning{
+  background: url("../../assets/img/front-page/aa-fob-warning.png") top center no-repeat;
+}
+.aa-recommendation{
+  background: url("../../assets/img/front-page/aa-recommendation.png") top center no-repeat;
+}
+.api-corp-service{
+  background: url("../../assets/img/front-page/api-corp-service.png") top center no-repeat;
+}
+.api-daily-life{
+  background: url("../../assets/img/front-page/api-daily-life.png") top center no-repeat;
+}
+.api-financial-services{
+  background: url("../../assets/img/front-page/api-financial-services.png") top center no-repeat;
+}
+.api-public-affairs{
+  background: url("../../assets/img/front-page/api-public-affairs.png") top center no-repeat;
+}
+.bg-bottom{
+  background: url("../../assets/img/front-page/bg-bottom.png") center center no-repeat;
+}
+.refreshNew{
+  background: url("../../assets/img/regist/refresh.png") center center no-repeat;
+}
+.mustInput{
+  background: url("../../assets/img/regist/mustInput.png") center center no-repeat;
+}
+.registSuccess{
+  background: url("../../assets/img/regist/success.png") center center no-repeat;
+}
+/*.float-box{*/
+  /*background: url("../../assets/img/regist/remindPic.png") center center no-repeat;*/
+/*}*/
+/*.float-box-sm{*/
+  /*background: url("../../assets/img/regist/remindPic_sm.png") center center no-repeat;*/
+/*}*/
+.info-true{
+  background: url("../../assets/img/regist/true.png") center center no-repeat;
+}
+.info-error{
+  background: url("../../assets/img/regist/error.png") center center no-repeat;
+}
+.info-wait{
+  background: url("../../assets/img/regist/waiting.png") center center no-repeat;
+}
+.clearInput{
+  background: url("../../assets/img/regist/error.png") center center no-repeat;
+}
+/*.pass-see{*/
+  /*background: url("../../assets/img/regist/see.png") center center no-repeat;*/
+/*}*/
+/*.pass-no-see{*/
+  /*background: url("../../assets/img/regist/nosee.png") center center no-repeat;*/
+/*}*/
+.goBack{
+  background: url("../../assets/img/back.png") center center no-repeat;
+}

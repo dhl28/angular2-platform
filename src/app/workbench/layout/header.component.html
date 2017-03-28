@@ -1,0 +1,45 @@
+<!-- BEGIN HEADER INNER -->
+<div class="page-header-inner">
+  <!-- BEGIN LOGO -->
+  <div class="page-logo pointer">
+    <div class="logo-img" [routerLink]="['/portal']"></div>
+    <!--<a [routerLink]="['/portal']">-->
+      <!---->
+      <!--<img src="../../../assets/css/themes/img/logo.png" alt="logo" class="logo-default"/>-->
+    <!--</a>-->
+    <div class="menu-toggler sidebar-toggler">
+      <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+    </div>
+  </div>
+
+  <div class="top-menu">
+    <ul class="nav navbar-nav pull-right">
+      <li class="dropdown">
+        <a [routerLink]="['/portal']">
+          返回首页
+        </a>
+      </li>
+      <li class="dropdown dropdown-user" *ngIf="authService.isLoggedIn">
+        <a href="javascript:void(0)" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown"
+           data-close-others="true">
+          <div class="user-img img-circle"></div>
+          <!--<img alt="" class="img-circle" src="../../../assets/css/themes/img/avatar3_small.jpg"/>-->
+          <span class="username username-hide-on-mobile">{{authService.userInfo.userName}}</span>
+          <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu account-nav" role="menu" aria-labelledby="dropdownMenu1">
+          <!--<li role="presentation"><a role="menuitem" tabindex="-1" [routerLink]="['/platform']">我的工作台</a></li>-->
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)" (click)="logout()">退出</a>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="!authService.isLoggedIn">
+        <a href="javascript:void(0)" class="login-label" [routerLink]="['/login']">
+          请登录
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- END TOP NAVIGATION MENU -->
+</div>
+<!-- END HEADER INNER -->

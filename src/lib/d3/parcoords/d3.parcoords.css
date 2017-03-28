@@ -1,0 +1,108 @@
+.parcoords > svg, .parcoords > canvas { 
+  font: 14px sans-serif;
+  position: absolute;
+}
+.parcoords > canvas {
+  pointer-events: none;
+}
+
+.parcoords[data=dark] text.label,.parcoords[data=dark] .axis text, .parcoords[data=dark] .axis .tick text {
+  cursor: default;
+  stroke: #AAAAAA;
+}
+.parcoords[data=infographic] text.label.parcoords[data=infographic] .axis text ,.parcoords[data=infographic] .axis .tick text {
+  cursor: default;
+}
+.parcoords[data=light] text.label .parcoords[data=light] .axis text,.parcoords[data=light] .axis .tick text{
+  cursor: default;
+}
+
+.darkparcoords text.label,.darkparcoords .axis text, .darkparcoords .axis .tick text {
+  cursor: default;
+  stroke: #AAAAAA;
+}
+.infographicparcoords text.label.infographicparcoords .axis text ,.infographicparcoords .axis .tick text {
+  cursor: default;
+}
+.lightparcoords text.label .lightparcoords .axis text,.lightparcoords .axis .tick text{
+  cursor: default;
+}
+.lightparcoords .d3title{
+  color: #000000;
+}
+.infographicparcoords .d3title{
+  color: #27727B;
+}
+.darkparcoords .d3title{
+  color: #AAAAAA;
+}
+.parcoords rect.background {
+  fill: transparent;
+}
+.parcoords rect.background:hover {
+  fill: rgba(120,120,120,0.2);
+  stroke: #AAAAAA;
+}
+.parcoords .resize rect {
+  fill: rgba(0,0,0,0.1);
+}
+
+.parcoords rect.extent {
+  fill: rgba(255,255,255,0.25);
+  stroke: rgba(0,0,0,0.6);
+}
+.parcoords[data=dark] .axis line, .parcoords[data=dark] .axis path{
+  fill: none;
+  stroke: #168CC7;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+.parcoords[data=light] .axis line, .parcoords[data=light] .axis path{
+  fill: none;
+  stroke: #4488BB;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+.parcoords[data=infographic] .axis line, .parcoords[data=infographic] .axis path {
+  fill: none !important;
+  stroke: #27727B !important;
+  stroke-width: 2px !important;
+  shape-rendering: crispEdges !important;
+}
+.darkparcoords .axis line, .darkparcoords .axis path{
+  fill: none;
+  stroke: #168CC7;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+.lightparcoords .axis line, .lightparcoords .axis path{
+  fill: none;
+  stroke: #4488BB;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+.infographicparcoords .axis line, .infographicparcoords .axis path {
+  fill: none !important;
+  stroke: #27727B !important;
+  stroke-width: 2px !important;
+  shape-rendering: crispEdges !important;
+}
+
+.parcoords canvas {
+  opacity: 1;
+  -moz-transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+}
+.parcoords canvas.faded {
+  opacity: 0.25;
+}
+.parcoords {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  font-family:΢Arial,Verdana,sans-serif;
+}

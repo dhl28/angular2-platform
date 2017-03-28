@@ -1,0 +1,72 @@
+:host-context(.platform-content) .content-container {padding: 0}
+
+.app-detail{
+  border-bottom: solid 1px #E4E4E4;
+  width: 100%;
+  color: #999999;
+  display: inline-block;
+  margin: 10px 15px 0 0;
+  height: 110px;
+  padding: 0 15px;
+}
+.tabbable-line{
+  margin: 0 200px;
+}
+.app-detail .icon{
+  width: 90px;
+  position: relative;
+  left: -5px;
+}
+.app-detail > div {
+  float: left;
+  height: 90px;
+}
+
+.dic {
+  padding:10px;
+}
+.dic >span{
+  display: block;
+  margin-bottom:11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dic .description{
+  width: 600px;
+}
+
+.app-detail .app-name{
+  color: #666666;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.appMarketOrderDiv{
+  margin-bottom: 10px;
+}
+.appMarketOrderDiv th {
+  text-align: right;
+  border: 1px solid #E4E4E4;
+  width: 90px;
+  font-size: 14px;
+  color: #666666;
+  font-weight: normal;
+  height: 28px;
+}
+.orderByTime{
+  background: #f5f5f5;
+}
+.orderByHeat{
+  background: #f5f5f5;
+}
+.orderByTime.active,.orderByHeat.active{
+  background:#ffffff;
+}
+.appMarketOrderDiv .totalApps{
+  border: 0px;
+  width: 200px;
+  text-align: left;
+  padding-left: 11px;
+}

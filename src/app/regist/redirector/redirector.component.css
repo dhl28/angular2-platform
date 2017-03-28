@@ -1,0 +1,86 @@
+.pass {
+  background-color: #f9f9f9 !important;
+  margin-top: 0;
+  overflow-y: hidden;
+  height: 100%;
+}
+.pass .content {
+  background-color: #f9f9f9;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  width: 380px;
+  margin: 40px auto 10px auto;
+  padding: 10px 30px 30px;
+  overflow: hidden;
+  position: relative;
+}
+.pass .content h3 {
+  color: #666666;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600 !important;
+}
+.pass .content .pass-form {
+  padding: 0px;
+  margin: 0px;
+}
+
+.passLine{
+  border: 0.5px solid #e1e1e1;
+}
+.remindTips{
+  margin: 34px 0;
+}
+.mailInfo{
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+  margin-top: 10px;
+}
+.pass-msg {
+  vertical-align: middle;
+  color: #FE7E27;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.pass .content .form-title {
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+.successInfo{
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: #FE7E27;
+  margin: 70px 0 0 0px;
+}
+.registSuccess {
+  height: 26px;
+  width: 26px;
+  float: left;
+  margin-right: 10px;
+}
+.reminds{
+  text-align: center;
+  text-indent: 12px;
+}
+.pass .login-copyright {
+  margin-top: 30px;
+  text-align: center;
+  padding: 4px 0;
+  color: #999999;
+}
+.registLine{
+  margin-left: -40px;
+  margin-right: -40px;
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 0;
+}
+
+

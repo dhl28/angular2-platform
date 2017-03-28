@@ -1,0 +1,148 @@
+.dsDetail{
+  margin:0 15%;
+}
+.service{
+  border-bottom: solid 1px #e1e1e1;
+  width: 100%;
+  height: 140px;
+  color: #999999;
+  display: inline-block;
+  margin: 0 15px 10px 0;
+}
+.service .icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  float: left;
+  cursor: pointer;
+}
+.dic {
+  float: left;
+  height: 100%;
+  font-size: 14px;
+  padding: 10px 0 0 24px;
+}
+.dic span{
+  display: block;
+  margin-bottom: 10px;
+}
+.firstLine{
+  margin-bottom: 22px !important;
+}
+.dic .des{
+  margin-bottom: 14px;
+  color: #666666;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 600px;
+}
+.dic .service-name{
+  color: #333333;
+  font-size: 17px !important;
+  font-weight:bold;
+  cursor: pointer;
+  display: inline;
+}
+
+.tabbable-line > .nav-tabs > li > a {
+  border: 0;
+  margin-right: 0;
+  color: #999999;
+}
+.tabbable-line > .nav-tabs > li.active {
+  border-bottom: 3px solid #fe7e27;
+  position: relative;
+}
+.tabbable-line > .nav-tabs > li.active > a {
+  border: 0;
+  color: #333;
+}
+.tabbable-line > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+.tabbable-line > .nav-tabs > li:hover {
+  border-bottom: 0;
+  border-bottom: 3px solid #fbcdcf;
+}
+
+.tabbable-line{
+  padding: 0  124px;
+}
+.tab-pane{
+  width: 100%;
+}
+.dsName{
+  font-size: 14px;
+  font-weight: bold;
+  margin: 20px 0 12px;
+  color: #333333;
+}
+.dsData{
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0 0 5px;
+  color: #666666;
+}
+.page-header-fixed .page-container{
+  width: 100%;
+  overflow-x: hidden;
+}
+.dataServiceTableDiv{
+  width: 100%;
+  overflow-x: auto;
+}
+.dataServiceTableDiv .table {
+  table-layout: auto;
+  word-wrap: break-word;
+  overflow: auto;
+}
+.table thead {
+  background-color: #fbfbfb;
+  border-color: #e1e1e1;
+}
+.table > thead > tr{
+  height: 52px;
+}
+.table > tbody > tr{
+  height: 48px;
+  border: 1px solid #e1e1e1;
+}
+.table > tbody > tr:hover {
+  /*border: 1px solid #f28134;*/
+  background-color: #fff6f0;
+}
+.table th {
+  font-weight: bold;
+  background-color: #f0f3f5;
+  text-align: center;
+  font-size: 14px;
+  border: 0 !important;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-family: SimSun !important;
+  color: #666666;
+}
+.table td {
+  text-align: center;
+  font-size: 14px;
+  border: 0 !important;
+  /*border: 1px solid #DDD;*/
+  white-space: nowrap;
+  vertical-align: middle;
+  font-family: SimSun !important;
+  color: #999999;
+}
+.tab-content{
+  width: 100%;
+  overflow-x: hidden;
+}
+.serviceType{
+  font-size: 12px;
+}
+.fa-heart{
+  color: #FE7827;
+}
+.likeShare{
+  display: inline !important;
+  margin-left: 10px;
+}

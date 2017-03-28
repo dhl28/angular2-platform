@@ -1,0 +1,75 @@
+.view-log {
+  margin-left: 15px
+}
+
+.form-group {
+  margin-bottom: 0px
+}
+
+.pagination-info {
+  float: left;
+}
+
+.tool-bar {
+  margin-bottom: 10px;
+}
+
+.search {
+  width: 200px;
+  position: relative;
+  background: #fafafa;
+}
+
+.search .fa-search {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  color: #999;
+}
+
+.search .form-control {
+  padding-right: 30px;
+}
+
+.data-source {
+  min-height: 100px;
+}
+
+.btn-upload {
+  color: #fff;
+  background-color: #FE7E27;
+  border-color: #FE7827;
+  visibility: hidden;
+}
+.edit-name {
+  color: #FE7E27;
+  display: none;
+  margin-left: 10px;
+}
+.edit-name .fa{
+  font-size: 16px;
+  float: right;
+}
+.appName{
+  max-width: calc(100% - 30px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.order-down,.order-up,.order-no{
+  float: none;
+  display: inline-block;
+  margin: 0 0 0 10px;
+}
+.fa-lock,.fa-unlock{
+  margin: 0;
+  font-size: 16px;
+  color: #fe7e27;
+  vertical-align: middle;
+}
+.cell-icon{
+   margin-left: 0;
+}
+.table{
+  position: relative;
+}

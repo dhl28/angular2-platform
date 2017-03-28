@@ -1,0 +1,35 @@
+[
+  {
+    "category": "酒店行业",
+    "description": "用数据驱动业务发展、做极致的服务体验",
+    "children": [
+      {
+        "pk": "82723d23-4359-41c1-a6b5-7007a795cb7c",
+        "appName": "用户画像分析",
+        "class":"aa-portrait"
+      }
+    ]
+  },
+  {
+    "category": "保险行业",
+    "description": "以稳定、安全的数据服务，打动用户",
+    "children": [
+      {
+        "pk": "174d188d-6e08-42d3-95e0-cf9c16167283",
+        "appName": "欺诈预警",
+        "class":"aa-fob-warning"
+      }
+    ]
+  },
+  {
+    "category": "互联网行业",
+    "description": "从数据中挖掘用户需求、精准定位",
+    "children": [
+      {
+        "pk": "d45cbdb4-aecc-46df-89da-dcbbadbfd49d",
+        "appName": "智能推荐",
+        "class":"aa-recommendation"
+      }
+    ]
+  }
+]

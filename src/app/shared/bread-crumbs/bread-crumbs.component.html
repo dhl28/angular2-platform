@@ -1,0 +1,5 @@
+<div class="bread-crumbs" *ngIf="!hidden">
+    <span class="path-item" *ngFor="let item of breadCrumbs;let last = last" (click)="linkTo(item)" [ngClass]="{'active':last,'pointer':!last}">{{item.name}}
+      <span *ngIf="!last" class="bread-crumbs-crumbs">&gt;</span>
+    </span>
+</div>
